@@ -5,19 +5,21 @@ const key = "TMCV6XL4RPK6ZAKXUYHMQJKLG";
 export default {
   id: "visual-crossing",
 
-  async getWeatherData(location = "lahore") {
+  async getWeatherData(location) {
     const data = await fetch(
       `${url}${location}?key=${key}&unitGroup=metric`,
     ).then((response) => response.json());
 
+    const currentConditions = data.currentConditions;
+
     return {
-      conditions: data.currentConditions.conditions,
+      conditions: currentConditions.conditions,
       description: data.description,
-      temperature: data.currentConditions.temp,
-      feelsLike: data.currentConditions.feelslike,
-      humidity: data.currentConditions.humidity,
-      precipitation: data.currentConditions.precip,
-      precipitationType: data.currentConditions.preciptype,
+      temperature: currentConditions.temp,
+      feelsLike: currentConditions.feelslike,
+      humidity: currentConditions.humidity,
+      precipitation: currentConditions.precip,
+      precipitationType: currentConditions.preciptype,
     };
   },
 };

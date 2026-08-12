@@ -6,3 +6,11 @@ const api = new WeatherApi("visual-crossing");
 const weather = new Weather(await api.getWeatherData());
 
 console.log(weather);
+
+export const app = {
+  async getWeather(location) {
+    const weather = new Weather(await api.getWeatherData(location));
+
+    return weather;
+  },
+};

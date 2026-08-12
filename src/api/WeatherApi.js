@@ -15,7 +15,7 @@ export class WeatherApi {
     if (api) this.#api = api;
   }
 
-  async getWeatherData() {
-    return await this.#api.getWeatherData();
+  async getWeatherData(location = "lahore") {
+    return await this.#api.getWeatherData(location);
   }
 }
