@@ -3,12 +3,8 @@ import { Weather } from "./Weather.js";
 
 const api = new WeatherApi("visual-crossing");
 
-const weather = new Weather(await api.getWeatherData());
-
-console.log(weather);
-
 export const app = {
-  async getWeather(location) {
+  async getWeather(location = "lahore") {
     const weather = new Weather(await api.getWeatherData(location));
 
     return weather;

@@ -10,9 +10,12 @@ export default {
       `${url}${location}?key=${key}&unitGroup=metric`,
     ).then((response) => response.json());
 
+    console.log(data);
+
     const currentConditions = data.currentConditions;
 
     return {
+      location: data.resolvedAddress,
       conditions: currentConditions.conditions,
       description: data.description,
       temperature: currentConditions.temp,

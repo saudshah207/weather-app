@@ -6,6 +6,14 @@
     <title>Weather App</title>
   </head>
   <body>
+    <div data-ui="weather-display">
+      <h1>
+        Showing the weather for <span data-ui="location" class="location">Lahore</span>.
+      </h1>
+
+      <div data-ui="weather"></div>
+    </div>
+
     <form data-action="get-weather-for-location">
       <label for="location">
         Type location to get weather for:
