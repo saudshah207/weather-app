@@ -1,7 +1,6 @@
 export class Weather {
   #location;
   #conditions;
-  #description;
   #temperature;
   #feelsLike;
   #humidity;
@@ -11,7 +10,6 @@ export class Weather {
   constructor({
     location,
     conditions,
-    description,
     temperature,
     feelsLike,
     humidity,
@@ -20,7 +18,6 @@ export class Weather {
   }) {
     this.#location = location;
     this.#conditions = conditions;
-    this.#description = description;
     this.#temperature = temperature;
     this.#feelsLike = feelsLike;
     this.#humidity = humidity;
@@ -33,9 +30,6 @@ export class Weather {
   }
   get conditions() {
     return this.#conditions;
-  }
-  get description() {
-    return this.#description;
   }
   get temperature() {
     return this.#temperature;

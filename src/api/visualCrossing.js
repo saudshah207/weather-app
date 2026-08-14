@@ -7,7 +7,7 @@ export default {
 
   async getWeatherData(location) {
     const data = await fetch(
-      `${url}${location}?key=${key}&unitGroup=metric`,
+      `${url}${location}?key=${key}&unitGroup=metric&include=current`,
     ).then((response) => response.json());
 
     console.log(data);
@@ -17,7 +17,6 @@ export default {
     return {
       location: data.resolvedAddress,
       conditions: currentConditions.conditions,
-      description: data.description,
       temperature: currentConditions.temp,
       feelsLike: currentConditions.feelslike,
       humidity: currentConditions.humidity,

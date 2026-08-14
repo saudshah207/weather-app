@@ -45,13 +45,11 @@ export function updateTemperatureValues(isPreferenceFahrenheit) {
 
 export function getWeatherComponent(weather) {
   const wrapper = document.createElement("div"),
-    conditions = document.createElement("p"),
-    description = document.createElement("p");
+    conditions = document.createElement("p");
 
   wrapper.dataset.ui = "weather";
 
   conditions.textContent = weather.conditions;
-  description.textContent = weather.description;
 
   const details = document.createElement("table"),
     temperature = getDetailRow(
@@ -75,7 +73,7 @@ export function getWeatherComponent(weather) {
     precipitationType,
   );
 
-  wrapper.append(conditions, description, details);
+  wrapper.append(conditions, details);
 
   return wrapper;
 }
