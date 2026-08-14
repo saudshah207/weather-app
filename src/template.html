@@ -7,11 +7,24 @@
   </head>
   <body>
     <div data-ui="weather-display">
-      <h1>
-        Showing the weather for <span data-ui="location" class="location">Lahore</span>.
-      </h1>
+      <header class="flex">
+        <h1>
+          Showing the weather for
+          <span data-ui="location" class="capitalize-text">Lahore</span>.
+        </h1>
+
+        <button
+          class="capitalize-text"
+          data-action="toggle-temperature-scale"
+          data-temperature-scale="fahrenheit"
+        >
+          Fahrenheit
+        </button>
+      </header>
 
       <div data-ui="weather"></div>
+
+      <p data-ui="error-message" class="display-none"></p>
     </div>
 
     <form data-action="get-weather-for-location">

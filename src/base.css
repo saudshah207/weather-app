@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
-.location {
+.flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.capitalize-text {
   text-transform: capitalize;
 }
