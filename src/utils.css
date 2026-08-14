@@ -1,0 +1,43 @@
+.flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.standard-gap {
+  gap: var(--standard-spacing);
+}
+
+.standard-padding {
+  padding: var(--standard-spacing);
+}
+
+.capitalize-text {
+  text-transform: capitalize;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}

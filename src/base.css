@@ -1,17 +1,42 @@
+@import "utils.css";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.flex {
-  display: flex;
+:root {
+  --standard-spacing: 1rem;
 }
 
-.display-none {
-  display: none;
+body {
+  min-height: 100vh;
 }
 
-.capitalize-text {
-  text-transform: capitalize;
+.weather-display,
+.weather-location-form {
+  --margin-top: calc(var(--standard-spacing) * 2);
+}
+
+.weather-display {
+  margin-top: var(--margin-top);
+}
+
+.weather-location-form {
+  max-width: 600px;
+  margin: var(--margin-top) auto auto;
+
+  --standard-spacing: 0.75rem;
+}
+
+.weather-location-input {
+  --preferred-width: 185px;
+
+  flex: var(--preferred-width);
+  width: min(var(--preferred-width), 100%);
+}
+
+.weather-location-form > button {
+  flex: 140px;
 }

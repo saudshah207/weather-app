@@ -1,11 +1,8 @@
+import { cssUtils } from "./cssUtils.js";
 import {
   getWeatherComponent,
   updateTemperatureValues,
 } from "./components/weather.js";
-
-const cssClasses = {
-  displayNone: "display-none",
-};
 
 const selectors = {
   display: "[data-ui='weather-display']",
@@ -24,13 +21,13 @@ export const panel = {
 
   update(weather) {
     if (!weather) {
-      errorMessageElement.classList.remove(cssClasses.displayNone);
+      errorMessageElement.classList.remove(cssUtils.displayNone);
       errorMessageElement.textContent = failedToFetchWeatherMessage;
 
       return;
     }
 
-    errorMessageElement.classList.add(cssClasses.displayNone);
+    errorMessageElement.classList.add(cssUtils.displayNone);
 
     const location = display.querySelector(selectors.location),
       weatherInfo = display.querySelector(selectors.weather);
