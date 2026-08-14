@@ -4,7 +4,7 @@ export class Weather {
   #temperature;
   #feelsLike;
   #humidity;
-  #precipitation;
+  #precipitation = 0;
   #precipitationType;
 
   constructor({
@@ -21,8 +21,8 @@ export class Weather {
     this.#temperature = temperature;
     this.#feelsLike = feelsLike;
     this.#humidity = humidity;
-    this.#precipitation = precipitation;
-    this.#precipitationType = precipitationType;
+    this.precipitation = precipitation;
+    this.precipitationType = precipitationType;
   }
 
   get location() {
@@ -43,7 +43,13 @@ export class Weather {
   get precipitation() {
     return this.#precipitation;
   }
+  set precipitation(amount) {
+    if (amount) this.#precipitation = amount;
+  }
   get precipitationType() {
     return this.#precipitationType;
+  }
+  set precipitationType(types) {
+    if (types) this.#precipitationType = types;
   }
 }

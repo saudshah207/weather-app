@@ -8,7 +8,7 @@ function getDetailRow(title, detail, identifier = null) {
     rowData = document.createElement("td");
 
   rowHeader.textContent = title;
-  rowData.textContent = detail;
+  rowData.textContent = Array.isArray(detail) ? detail.join(", ") : detail;
 
   if (identifier) row.dataset.ui = identifier;
 
@@ -62,7 +62,7 @@ export function getWeatherComponent(weather) {
     precipitation = getDetailRow("Precipitation", weather.precipitation),
     precipitationType = getDetailRow(
       "Precipitation Type",
-      weather.precipitationType,
+      weather.precipitationType ? weather.precipitationType : "none",
     );
 
   details.append(
