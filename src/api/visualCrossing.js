@@ -2,6 +2,17 @@ const url =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const key = "TMCV6XL4RPK6ZAKXUYHMQJKLG";
 
+function getRequiredWeatherData(data) {
+  return {
+    conditions: data.conditions,
+    temperature: { temp: data.temp, low: data.tempmin, high: data.tempmax },
+    feelsLike: data.feelslike,
+    humidity: data.humidity,
+    precipitation: data.precip,
+    precipitationType: data.preciptype,
+  };
+}
+
 export default {
   id: "visual-crossing",
 
@@ -12,16 +23,16 @@ export default {
 
     console.log(data);
 
-    const currentConditions = data.currentConditions;
-
-    return {
+    const weather = {
       location: data.resolvedAddress,
-      conditions: currentConditions.conditions,
-      temperature: currentConditions.temp,
-      feelsLike: currentConditions.feelslike,
-      humidity: currentConditions.humidity,
-      precipitation: currentConditions.precip,
-      precipitationType: currentConditions.preciptype,
+      forecast: [],
+      current: getRequiredWeatherData(data.currentConditions),
     };
+
+    for (const day of data.days) {
+      weather.forecast.push(getRequiredWeatherData(day));
+    }
+
+    return weather;
   },
 };

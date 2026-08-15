@@ -10,7 +10,7 @@ const selectors = {
   temperatureValue: `[data-ui='${identifiers.temperatureValue}']`,
 };
 
-function getDetail({ value, textToAttachToValue, title, valueIdentifier }) {
+export function getDetail({ value, textToAttachToValue, title, valueIdentifier }) {
   value = Array.isArray(value) ? value.join(", ") : value;
 
   const space = " ";
@@ -80,7 +80,7 @@ export function getWeatherComponent(weather) {
   conditions.textContent = weather.conditions;
 
   const temperature = getDetail({
-      value: weather.temperature,
+      value: weather.temperature.temp,
       textToAttachToValue: { textAfter: "*" },
       valueIdentifier: identifiers.temperatureValue,
     }),

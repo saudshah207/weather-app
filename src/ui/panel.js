@@ -3,18 +3,30 @@ import {
   getWeatherComponent,
   updateTemperatureValues,
 } from "./components/weather.js";
+import { getForecastDayComponent } from "./components/forecastDay.js";
 
 const selectors = {
   display: "[data-ui='weather-display']",
   location: "[data-ui='location']",
   weather: "[data-ui='weather']",
+  forecast: "[data-ui='forecast']",
   errorMessage: "[data-ui='error-message']",
 };
 
 const display = document.querySelector(selectors.display);
 
+const forecastElement = display.querySelector(selectors.forecast);
+
 const errorMessageElement = display.querySelector(selectors.errorMessage),
   failedToFetchWeatherMessage = "Failed to fetch weather data.";
+
+function removeElements(elements) {
+  if (!elements) return;
+
+  for (const element of elements) {
+    element.remove();
+  }
+}
 
 export const panel = {
   temperatureScalePreference: "celsius",
@@ -30,12 +42,17 @@ export const panel = {
     errorMessageElement.classList.add(cssUtils.displayNone);
 
     const location = display.querySelector(selectors.location),
-      weatherInfo = display.querySelector(selectors.weather);
+      weatherElements = display.querySelectorAll(selectors.weather);
 
     location.textContent = weather.location;
-    weatherInfo?.remove();
 
-    display.append(getWeatherComponent(weather));
+    removeElements(weatherElements);
+
+    display.insertBefore(getWeatherComponent(weather.current), forecastElement);
+
+    for (const day of weather.forecast) {
+      forecastElement.append(getForecastDayComponent(day));
+    }
   },
 
   toggleTemperatureScale(toggle) {

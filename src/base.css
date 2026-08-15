@@ -40,3 +40,10 @@ body {
 .weather-location-form > button {
   flex: 140px;
 }
+
+.forecast {
+  grid-auto-flow: column;
+
+  width: 100%;
+  overflow-x: auto;
+}

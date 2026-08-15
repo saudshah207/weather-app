@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .display-none {
   display: none;
 }
@@ -40,4 +44,8 @@
 
 .font-weight-bold {
   font-weight: bold;
+}
+
+.list-style-none {
+  list-style: none;
 }

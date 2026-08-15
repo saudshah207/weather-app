@@ -22,8 +22,6 @@ const eventActions = [
   ) {
     const weather = await app.getWeather(formElements.location.value);
 
-    console.log(weather);
-
     displayLocationWeather(weather);
   }),
   new EventAction("toggle-temperature-scale", function (target) {
