@@ -1,14 +1,13 @@
 import { cssUtils } from "./cssUtils.js";
-import {
-  getWeatherComponent,
-  updateTemperatureValues,
-} from "./components/weather.js";
-import { getForecastDayComponent } from "./components/forecastDay.js";
+import { commonUiIdentifiers } from "./commonUiIdentifiers.js";
+import { updateTemperatureValues } from "./temperatureConverter.js";
+import { getWeatherComponent } from "./components/weather/weather.js";
+import { getForecastDayComponent } from "./components/forecastDay/forecastDay.js";
 
 const selectors = {
   display: "[data-ui='weather-display']",
   location: "[data-ui='location']",
-  weather: "[data-ui='weather']",
+  weather: `[data-ui='${commonUiIdentifiers.weather}']`,
   forecast: "[data-ui='forecast']",
   errorMessage: "[data-ui='error-message']",
 };
