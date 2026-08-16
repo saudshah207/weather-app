@@ -1,3 +1,6 @@
 .forecast-day {
   --standard-spacing: 0.35rem;
+
+  padding: 2rem 3rem;
+  border-radius: var(--standard-border-radius);
 }

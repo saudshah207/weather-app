@@ -6,4 +6,5 @@ export const cssUtils = {
   standardGap: "standard-gap",
   standardPadding: "standard-padding",
   fontWeightBold: "font-weight-bold",
+  whiteBackground: "white-background",
 };

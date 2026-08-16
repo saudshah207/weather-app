@@ -23,6 +23,7 @@ export function getForecastDayComponent(weather) {
     cssUtils.flex,
     cssUtils.flexColumn,
     cssUtils.standardGap,
+    cssUtils.whiteBackground,
   );
 
   const weatherDate = weather.date;

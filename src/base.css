@@ -7,7 +7,15 @@
 }
 
 :root {
+  --white: #ffffff;
+  --ocean-blue: #0096c7;
+
+  --primary-color: var(--ocean-blue);
+
   --standard-spacing: 1rem;
+  --standard-border-radius: 0.25rem;
+  --standard-box-shadow: 0px 0px 2px 0px rgba(0 0 0 / 0.5);
+  --standard-border: 1px solid rgba(0 0 0);
 }
 
 body {
@@ -34,6 +42,13 @@ body {
   --standard-spacing: 0.75rem;
 }
 
+input {
+  padding: calc(var(--standard-spacing) / 2);
+  
+  border-radius: var(--standard-border-radius);
+  border: var(--standard-border);
+}
+
 .weather-location-input {
   --preferred-width: 185px;
 
@@ -52,7 +67,7 @@ body {
   overflow-x: auto;
   scroll-snap-type: inline mandatory;
 
-  margin-block: var(--standard-spacing);
+  padding-block: var(--standard-spacing);
 
   scroll-padding-inline-start: var(--standard-spacing);
 

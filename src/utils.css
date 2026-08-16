@@ -53,3 +53,21 @@
 .list-style-none {
   list-style: none;
 }
+
+.button {
+  appearance: none;
+  padding: calc(var(--standard-spacing) / 2) var(--standard-spacing);
+  border-radius: var(--standard-border-radius);
+  border: none;
+}
+
+.button.primary-button {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.button.secondary-button,
+.white-background {
+  background: var(--white);
+  box-shadow: var(--standard-box-shadow);
+}
