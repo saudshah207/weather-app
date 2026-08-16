@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body class="standard-padding">
+  <body>
     <button
-      class="capitalize-text"
+      class="temperature-scale-toggle capitalize-text"
       data-action="toggle-temperature-scale"
       data-temperature-scale="fahrenheit"
     >
@@ -19,19 +19,24 @@
       class="weather-display flex flex-column align-items-center center-text standard-gap"
     >
       <h1>
-        <span data-ui="location" class="capitalize-text">Lahore</span>
+        <span data-ui="location" class="capitalize-text standard-padding"
+          >Lahore</span
+        >
       </h1>
 
       <div data-ui="weather"></div>
 
-      <p data-ui="error-message" class="display-none"></p>
+      <p data-ui="error-message" class="display-none standard-padding"></p>
 
-      <ul data-ui="forecast" class="forecast list-style-none grid standard-gap"></ul>
+      <ul
+        data-ui="forecast"
+        class="forecast list-style-none grid standard-gap standard-inline-padding"
+      ></ul>
     </div>
 
     <form
       data-action="get-weather-for-location"
-      class="weather-location-form flex flex-wrap standard-gap"
+      class="weather-location-form flex flex-wrap standard-gap standard-inline-padding"
     >
       <label for="location" class="flex flex-wrap flex-grow standard-gap">
         Type location to get weather for:

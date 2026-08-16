@@ -4,5 +4,6 @@ export const cssUtils = {
   flexColumn: "flex-column",
   flexWrap: "flex-wrap",
   standardGap: "standard-gap",
+  standardPadding: "standard-padding",
   fontWeightBold: "font-weight-bold",
 };

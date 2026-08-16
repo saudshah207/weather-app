@@ -34,6 +34,10 @@
   padding: var(--standard-spacing);
 }
 
+.standard-inline-padding {
+  padding-inline: var(--standard-spacing);
+}
+
 .capitalize-text {
   text-transform: capitalize;
 }

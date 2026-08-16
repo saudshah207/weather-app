@@ -12,6 +12,7 @@ export function getWeatherComponent(weather) {
     cssUtils.flex,
     cssUtils.flexColumn,
     cssUtils.standardGap,
+    cssUtils.standardPadding,
   );
   wrapper.dataset.ui = commonUiIdentifiers.weather;
 

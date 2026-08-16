@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 }
 
+.temperature-scale-toggle {
+  margin: var(--standard-spacing);
+}
+
 .weather-display,
 .weather-location-form {
   --margin-top: calc(var(--standard-spacing) * 2);
@@ -46,4 +50,6 @@ body {
 
   width: 100%;
   overflow-x: auto;
+
+  margin-block: var(--standard-spacing);
 }
