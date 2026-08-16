@@ -1,5 +1,6 @@
 import "./forecastDay.css";
 import { commonUiIdentifiers } from "../../commonUiIdentifiers.js";
+import { textsToAttachToWeatherValue } from "../textsToAttachToWeatherValue.js";
 import { cssUtils } from "../../cssUtils.js";
 import { getDetail } from "../getDetail.js";
 
@@ -36,17 +37,17 @@ export function getForecastDayComponent(weather) {
 
   const high = getDetail({
       value: weather.temperature.high,
-      textToAttachToValue: { textAfter: "*" },
+      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.degree },
       valueIdentifier: commonUiIdentifiers.temperatureValue,
     }),
     low = getDetail({
       value: weather.temperature.low,
-      textToAttachToValue: { textAfter: "*" },
+      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.degree },
       valueIdentifier: commonUiIdentifiers.temperatureValue,
     }),
     precipitation = getDetail({
       value: weather.precipitation,
-      textToAttachToValue: { textAfter: "mm" },
+      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.milliMeter },
     }),
     day = getDetail({
       value: dayOfWeek,

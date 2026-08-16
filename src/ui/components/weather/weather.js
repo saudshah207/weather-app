@@ -1,5 +1,6 @@
 import "./weather.css";
 import { commonUiIdentifiers } from "../../commonUiIdentifiers.js";
+import { textsToAttachToWeatherValue } from "../textsToAttachToWeatherValue.js";
 import { cssUtils } from "../../cssUtils.js";
 import { getDetail } from "../getDetail.js";
 
@@ -20,12 +21,15 @@ export function getWeatherComponent(weather) {
 
   const temperature = getDetail({
       value: weather.temperature.temp,
-      textToAttachToValue: { textAfter: "*" },
+      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.degree },
       valueIdentifier: commonUiIdentifiers.temperatureValue,
     }),
     feelsLike = getDetail({
       value: weather.feelsLike,
-      textToAttachToValue: { textBefore: "Feels Like", textAfter: "*" },
+      textToAttachToValue: {
+        textBefore: "Feels Like",
+        textAfter: textsToAttachToWeatherValue.degree,
+      },
       valueIdentifier: commonUiIdentifiers.temperatureValue,
     }),
     humidity = getDetail({
@@ -35,7 +39,7 @@ export function getWeatherComponent(weather) {
     }),
     precipitation = getDetail({
       value: weather.precipitation,
-      textToAttachToValue: { textAfter: "mm" },
+      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.milliMeter },
       title: "Precipitation:",
     }),
     precipitationType = getDetail({
