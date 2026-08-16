@@ -1,8 +1,13 @@
 import { app } from "../app/app.js";
 import { EventAction } from "./EventAction.js";
+import { catchErrors } from "./catchErrors.js";
 import { panel } from "./panel.js";
 
+app.getWeather = catchErrors(app.getWeather);
+
 function displayLocationWeather(weather) {
+  panel.removeLoading();
+
   panel.update(weather);
 
   const isPreferenceFahrenheit =
@@ -11,7 +16,9 @@ function displayLocationWeather(weather) {
   if (isPreferenceFahrenheit) panel.updateTemperature(isPreferenceFahrenheit);
 }
 
-const weather = await app.getWeather().catch((error) => console.error(error));
+panel.displayLoading();
+
+const weather = await app.getWeather();
 
 displayLocationWeather(weather);
 
@@ -20,6 +27,8 @@ const eventActions = [
     target,
     formElements,
   ) {
+    panel.displayLoading();
+
     const weather = await app.getWeather(formElements.location.value);
 
     displayLocationWeather(weather);

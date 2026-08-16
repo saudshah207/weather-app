@@ -9,9 +9,7 @@ function delegateEvent(event, actions) {
 
   for (const action of actions) {
     if (action.name === target.dataset.action) {
-      action
-        .perform(target, formElements)
-        ?.catch((error) => console.error(error));
+      action.perform(target, formElements);
 
       break;
     }

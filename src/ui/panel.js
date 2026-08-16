@@ -9,6 +9,7 @@ const selectors = {
   location: "[data-ui='location']",
   weather: `[data-ui='${commonUiIdentifiers.weather}']`,
   forecast: "[data-ui='forecast']",
+  loading: "[data-ui='loading']",
   errorMessage: "[data-ui='error-message']",
 };
 
@@ -18,6 +19,8 @@ const forecastElement = display.querySelector(selectors.forecast);
 
 const errorMessageElement = display.querySelector(selectors.errorMessage),
   failedToFetchWeatherMessage = "Failed to fetch weather data.";
+
+const loadingElement = display.querySelector(selectors.loading);
 
 function removeElements(elements) {
   if (!elements) return;
@@ -29,6 +32,15 @@ function removeElements(elements) {
 
 export const panel = {
   temperatureScalePreference: "celsius",
+
+  displayLoading() {
+    loadingElement.classList.remove(cssUtils.displayNone);
+    errorMessageElement.classList.add(cssUtils.displayNone);
+
+    const weatherElements = display.querySelectorAll(selectors.weather);
+
+    removeElements(weatherElements);
+  },
 
   update(weather) {
     if (!weather) {
@@ -52,6 +64,10 @@ export const panel = {
     for (const day of weather.forecast) {
       forecastElement.append(getForecastDayComponent(day));
     }
+  },
+
+  removeLoading() {
+    loadingElement.classList.add(cssUtils.displayNone);
   },
 
   toggleTemperatureScale(toggle) {
