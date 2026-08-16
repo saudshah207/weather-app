@@ -5,6 +5,7 @@ export class Weather {
   #feelsLike;
   #humidity;
   #precipitation = 0;
+  #precipitationProbability = 0;
   #precipitationType;
 
   constructor({
@@ -14,6 +15,7 @@ export class Weather {
     feelsLike,
     humidity,
     precipitation,
+    precipitationProbability,
     precipitationType,
   }) {
     this.date = dateString;
@@ -22,6 +24,7 @@ export class Weather {
     this.#feelsLike = feelsLike;
     this.#humidity = humidity;
     this.precipitation = precipitation;
+    this.precipitationProbability = precipitationProbability;
     this.precipitationType = precipitationType;
   }
 
@@ -52,6 +55,12 @@ export class Weather {
   }
   set precipitation(amount) {
     if (amount) this.#precipitation = amount;
+  }
+  get precipitationProbability() {
+    return this.#precipitationProbability;
+  }
+  set precipitationProbability(probability) {
+    if (probability) this.#precipitationProbability = probability;
   }
   get precipitationType() {
     return this.#precipitationType;

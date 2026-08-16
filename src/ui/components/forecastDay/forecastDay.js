@@ -46,8 +46,10 @@ export function getForecastDayComponent(weather) {
       valueIdentifier: commonUiIdentifiers.temperatureValue,
     }),
     precipitation = getDetail({
-      value: weather.precipitation,
-      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.milliMeter },
+      value: weather.precipitationProbability,
+      textToAttachToValue: {
+        textAfter: textsToAttachToWeatherValue.precentage,
+      },
     }),
     day = getDetail({
       value: dayOfWeek,

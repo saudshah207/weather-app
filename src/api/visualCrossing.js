@@ -5,6 +5,7 @@ const key = "TMCV6XL4RPK6ZAKXUYHMQJKLG";
 function getRequiredWeatherData(
   data,
   precipitation = null,
+  precipitationProbability = null,
   precipitationType = null,
 ) {
   return {
@@ -14,6 +15,9 @@ function getRequiredWeatherData(
     feelsLike: data.feelslike,
     humidity: data.humidity,
     precipitation: precipitation ? precipitation : data.precip,
+    precipitationProbability: precipitationProbability
+      ? precipitationProbability
+      : data.precipprob,
     precipitationType: precipitationType ? precipitationType : data.preciptype,
   };
 }
@@ -36,6 +40,7 @@ export default {
       current: getRequiredWeatherData(
         data.currentConditions,
         today.precip,
+        today.precipprob,
         today.preciptype,
       ),
     };

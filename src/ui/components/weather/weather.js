@@ -34,12 +34,16 @@ export function getWeatherComponent(weather) {
     }),
     humidity = getDetail({
       value: weather.humidity,
-      textToAttachToValue: { textAfter: "%" },
+      textToAttachToValue: {
+        textAfter: textsToAttachToWeatherValue.precentage,
+      },
       title: "Humidity:",
     }),
     precipitation = getDetail({
       value: weather.precipitation,
-      textToAttachToValue: { textAfter: textsToAttachToWeatherValue.milliMeter },
+      textToAttachToValue: {
+        textAfter: textsToAttachToWeatherValue.milliMeter,
+      },
       title: "Precipitation:",
     }),
     precipitationType = getDetail({
