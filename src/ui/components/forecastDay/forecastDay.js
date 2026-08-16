@@ -7,6 +7,11 @@ const identifiers = {
   forecastDay: "forecast-day",
 };
 
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
 export function getForecastDayComponent(weather) {
   const wrapper = document.createElement("li");
 
@@ -18,6 +23,16 @@ export function getForecastDayComponent(weather) {
     cssUtils.flexColumn,
     cssUtils.standardGap,
   );
+
+  const weatherDate = weather.date;
+
+  let dayOfWeek = daysOfWeek[weatherDate.getDay()];
+
+  if (
+    dayOfWeek === daysOfWeek[today.getDay()] &&
+    today.getTime() === weatherDate.getTime()
+  )
+    dayOfWeek = "Today";
 
   const high = getDetail({
       value: weather.temperature.high,
@@ -32,9 +47,15 @@ export function getForecastDayComponent(weather) {
     precipitation = getDetail({
       value: weather.precipitation,
       textToAttachToValue: { textAfter: "mm" },
+    }),
+    day = getDetail({
+      value: dayOfWeek,
+    }),
+    date = getDetail({
+      value: `${weatherDate.getMonth() + 1}/${weatherDate.getDate()}`,
     });
 
-  wrapper.append(high, low, precipitation);
+  wrapper.append(high, low, precipitation, day, date);
 
   return wrapper;
 }

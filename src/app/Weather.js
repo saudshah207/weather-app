@@ -1,4 +1,5 @@
 export class Weather {
+  #date;
   #conditions;
   #temperature;
   #feelsLike;
@@ -7,6 +8,7 @@ export class Weather {
   #precipitationType;
 
   constructor({
+    dateString,
     conditions,
     temperature,
     feelsLike,
@@ -14,6 +16,7 @@ export class Weather {
     precipitation,
     precipitationType,
   }) {
+    this.date = dateString;
     this.#conditions = conditions;
     this.#temperature = temperature;
     this.#feelsLike = feelsLike;
@@ -22,6 +25,16 @@ export class Weather {
     this.precipitationType = precipitationType;
   }
 
+  set date(dateString) {
+    const date = new Date(dateString);
+
+    date.setHours(0, 0, 0, 0);
+
+    if (!isNaN(date.valueOf())) this.#date = date;
+  }
+  get date() {
+    return this.#date;
+  }
   get conditions() {
     return this.#conditions;
   }

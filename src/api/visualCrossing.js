@@ -4,6 +4,7 @@ const key = "TMCV6XL4RPK6ZAKXUYHMQJKLG";
 
 function getRequiredWeatherData(data) {
   return {
+    dateString: data.datetime,
     conditions: data.conditions,
     temperature: { temp: data.temp, low: data.tempmin, high: data.tempmax },
     feelsLike: data.feelslike,
