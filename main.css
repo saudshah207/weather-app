@@ -105,6 +105,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+
+  padding-bottom: calc(var(--standard-spacing) * 2);
 }
 
 .temperature-scale-toggle {
